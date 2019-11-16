@@ -1,7 +1,7 @@
 # Projektbeschreibung
 
 ## Ausgangslage
-Für einen Mitbewohner im Seniorenalter soll eine vereinfachte Bedienung seiner TV/Audioanlage konstruiert werden. Der Mitbewohner hat ein Swisscom-TV Abo und verfügt über eine Sonos Audioanlage. 
+Für einen Mitbewohner im Seniorenalter soll eine vereinfachte Bedienung seiner TV/Audioanlage konstruiert werden. Der Mitbewohner hat ein Swisscom-TV Abo und verfügt über eine Sonos-Audioanlage. 
 Die jetzige Bedienung ist nicht optimal, da er für die einzelnen Komponenten jeweils eine separate Fernbedienung in die Hand nehmen muss.
 -	TV (LG Fernseher) mit Fernbedienung einschalten
 -	Swisscom TV mit Fernbedienung aktivieren und Programm wählen
@@ -20,7 +20,7 @@ Die Einrichtung der Sonosgeräte erfolgt nur über deren App. Alle Geräte müss
 Auf der Suche sind wir auf folgende Sonos HTTP Api gestossen.  
 https://jishi.github.io/node-sonos-http-api/
 
-Diese node.js basierte Api wird auf unseren raspberry pi implementiert. Für unseren Zweck ist diese Variante sehr optimal.
+Diese node.js basierte Api wird auf unseren raspberry pi implementiert. Für unseren Zweck ist diese Variante optimal.
 
 Die Befehle für die Lautstärkeanpassung können über ein Arduino Modul (Feather Huzza) absetzen.
 
