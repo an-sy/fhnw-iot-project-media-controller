@@ -8,7 +8,7 @@ Die jetzige Bedienung ist nicht optimal, da er für die einzelnen Komponenten je
 -	Mit Sonos App (Mobilephone) die Lautstärke anpassen
 
 ## Lösungsidee (Reference model)
-![reference model](/01_Usecase_and_reference_model/01_usecase_referencemodel_draft1.png)
+![reference model](01-Usecase-reference-model/draft1.png)
 
 
 ### Sonos Anlage:
@@ -23,6 +23,8 @@ https://jishi.github.io/node-sonos-http-api/
 Diese node.js basierte Api wird auf unseren raspberry pi implementiert. Für unseren Zweck ist diese Variante sehr optimal.
 
 Die Befehle für die Lautstärkeanpassung können über ein Arduino Modul (Feather Huzza) absetzen.
+
+### Swisscom TV:
 
 
 
