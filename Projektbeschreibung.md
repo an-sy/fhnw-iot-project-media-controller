@@ -1,7 +1,7 @@
 # Projektbeschreibung
 
 ## Ausgangslage
-Für einen Mitbewohner im Seniorenalter soll eine vereinfachte Bedienung seiner TV/Audioanlage konstruiert werden. Der Mitbewohner hat ein Swisscom-TV Abo und verfügt über eine Sonos-Audioanlage. 
+Für einen Mitbewohner im Seniorenalter soll eine vereinfachte Bedienung seiner TV/Audioanlage konstruiert werden. Der Mitbewohner hat ein [Swisscom-TV Abo](https://www.swisscom.ch/de/privatkunden/abos-tarife/inone-home/digital-tv.html) und verfügt über eine [Sonos-Audioanlage](https://www.sonos.com/en-us/home). 
 Die jetzige Bedienung ist nicht optimal, da er für die einzelnen Komponenten jeweils eine separate Fernbedienung in die Hand nehmen muss.
 -	TV (LG Fernseher) mit Fernbedienung einschalten
 -	Swisscom TV mit Fernbedienung aktivieren und Programm wählen
