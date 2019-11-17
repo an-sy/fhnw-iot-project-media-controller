@@ -1,5 +1,5 @@
 # IoT Engineering
-## Project MY_TEAM_PROJECT_TITLE
+## [Project Media Controller](Projektbeschreibung.md)
 
 > *Note: Do not work on this repository right away.*<br/>
 > *[Create your copy or join a team by clicking this GitHub Classroom link](https://classroom.github.com/g/gALXMYRD).*
@@ -14,8 +14,8 @@ This project is part of the [IoT Engineering](../../../fhnw-iot) course.
 * Both team members are able to explain the project.
 
 ### Team members
-* @MY_TEAM_PROJECT_GITHUB_USER_1, REAL_NAME_1
-* @MY_TEAM_PROJECT_GITHUB_USER_2, REAL_NAME_2
+* @Ansy, Anas Syed
+* @RavindraBen, Ravindra Asirvatham
 
 ## Deliverables
 The following deliverables are mandatory.
