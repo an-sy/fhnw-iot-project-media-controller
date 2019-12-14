@@ -11,7 +11,7 @@ Die jetzige Bedienung ist nicht optimal, da er für die einzelnen Komponenten je
 
 Wie auf dem Reference model ersichtlich ist das Ziel, die erwähnten Anlagen über eine einzige Device zu steuern. 
 
-![reference model](01-Usecase-reference-model/draft2.png)
+![reference model](referencemodel.png)
 Abb.1 Reference model
 
 ## Komponenten
