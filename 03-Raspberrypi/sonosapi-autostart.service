@@ -1,0 +1,13 @@
+[Unit]
+Description=sonosapi
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+User=root
+WorkingDirectory=/home/pi/jishi-node-sonos-http-api-0d03be9
+ExecStart=/usr/local/bin/npm start
+
+[Install]
+WantedBy=multi-user.target
