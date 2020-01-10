@@ -55,7 +55,7 @@ Nach dieser Anpassung wird der Fernseher automatisch nach Betriebszutand des Swi
 >https://community.swisscom.ch/t5/TV-Wissensbox/HDMI-CEC-Immer-auf-dem-richtigen-Kanal/ta-p/582271
 
 ## Von der Skizze zur Hardware:
-Die Realsierung der Fernbedienung begann zuerst mit einer Skizze, dann mit der Umsetzung, die wie folgt ablief:
+Die Realisierung der Fernbedienung begann zuerst mit einer Skizze, dann mit der Umsetzung, die wie folgt ablief:
 1. Auswahl der erfordlichen Schaltelemente
 2. Mass des Gehäuses festlegen
 3. Material bestellen
@@ -63,7 +63,14 @@ Die Realsierung der Fernbedienung begann zuerst mit einer Skizze, dann mit der U
 
 ![](/04-Bilder/Workprogress.jpg)
 
-Das Innenleben der Fernbedienung: "Hier noch ein Bild einfügen"
+Das Innenleben der Fernbedienung:
+
+![](/04-Bilder/Fernbedienung_innen.png)
+
+
+Das Ziel wurde erreicht und wir sind stolz, dass die Anlage mit einer einzigen Fernbedienung die gestellten Aufgaben steuern kann und damit auch den Senioren glücklich macht. 
+
+![](/04-Bilder/endproduct.jpg)
 
 
 #### Die zusammengebaute Fernbedienung besteht aus folgenden Elementen. Hier die Auflistung und die Bestelllinks.
