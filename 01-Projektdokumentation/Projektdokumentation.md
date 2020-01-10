@@ -70,7 +70,7 @@ Das Innenleben der Fernbedienung:
 
 Das Ziel wurde erreicht und wir sind stolz, dass die Anlage mit einer einzigen Fernbedienung die gestellten Aufgaben steuern kann und damit auch den Senioren glücklich macht. 
 
-![](/04-Bilder/endproduct.jpg)
+![](/04-Bilder/Endproduct.jpg)
 
 
 #### Die zusammengebaute Fernbedienung besteht aus folgenden Elementen. Hier die Auflistung und die Bestelllinks.
