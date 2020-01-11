@@ -1,7 +1,12 @@
 //Sonos Server Config
-#define sonosHost "192.168.1.115" // replace Sonos Server IP
+#define sonosHost "192.168.0.104" // replace Sonos Server IP
 #define sonosPort 5005 // replace Sonos Server port
-#define sonosPath "/playbar/volume/" // replace Sonos Server path
+#define sonosSpeakerPath "/fernsehzimmer/volume/" // replace Sonos Server Speakerpath
+
+// influxDB Server
+#define influxdbHost "192.168.0.105" 
+#define influxdbPort 8086 // 
+#define influxdbPath "/write?db=iotdevicelogs"
 
 
 //Swisscom Ir Code
