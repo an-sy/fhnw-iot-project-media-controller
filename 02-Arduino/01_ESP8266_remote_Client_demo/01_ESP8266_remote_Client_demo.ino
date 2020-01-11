@@ -119,7 +119,7 @@ void changeVolume(int volume) {
      message = "iotdevicelogs,method=changeVolume,status=ok value="+ String(volume);
      createLog(message);
     } else{
-     message = "iotdevicelogs,method=changeVolume,status=failure value="+ String(volume);
+     message = "iotdevicelogs,method=changeVolume,status=failure value=-1";
      createLog(message);
       }
   }
