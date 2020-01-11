@@ -54,6 +54,46 @@ Für das Ein-und Ausschalten des Fernsehers nutzen wir die Features der [HDMI-CE
 Nach dieser Anpassung wird der Fernseher automatisch nach Betriebszutand des Swisscom Tvs ein-oder ausgeschaltet. Eine genaue Anleitung für das Einrichten der Swisscom TV-Box findet man hier:
 >https://community.swisscom.ch/t5/TV-Wissensbox/HDMI-CEC-Immer-auf-dem-richtigen-Kanal/ta-p/582271
 
+
+## Dashboard
+Wir haben uns entschieden für die Demo mit Docker folgende Container:
+InfluxDB und Grafana aufzubauen.
+
+#### Installation
+
+Beide Container wurden nach dieser [Anleitung](https://towardsdatascience.com/get-system-metrics-for-5-min-with-docker-telegraf-influxdb-and-grafana-97cfd957f0ac) erstellt.
+Im Docker Composer [file](/06-dashboard/docker-compose.yml) sind beide Container definiert.
+
+
+#### InfluxDB
+Es wurde eine Datenbank erstellt "iotdevicelogs"
+
+Folgende parameter werden in der DB hinterlegt in der Table 
+iotdevicelogs (Measurements)
+
+Der Unix Timestamp wird autogeneried, wenn die Daten geschrieben werden.
+| Time (UNIX)   | method        | status       | value |
+| ------------- | ------------- |:------------:| -----:|
+| 1578745797    | PowerON       | pressed      |    0  |
+| 1578745797    | PowerOFF      | pressed      |    0  |
+| 1578745797    | ProgUp        | pressed      |    0  |
+| 1578745797    | ProgDown      | pressed      |    0  |
+| 1578745797    | changeVolume  | ok           |    50 |
+
+Die Daten werden via Http API in der DB geschieben, siehe [influxDB API](https://docs.influxdata.com/influxdb/v1.7/guides/writing_data/)
+
+Hier ein Bsp.
+
+    curl -i -XPOST 'http://localhost:8086/write?db=iotdevicelogs' --data-binary 'iotdevicelogs,method=changeVolume,status=ok value=20' -v
+
+#### Grafana
+Bei Grafana wurde ein Dashboard erstellt, wo als Table die Logs aufgelisted werden mit Zeitstempel.
+Wenn der Status auf failure ist wird dies Rot markiert. (Nur bei changeVolume, da nur dort Rückmeldung)
+
+Grafana [Dashboard]() wurde als Json exportiert.
+
+![](/04-Bilder/grafanapanel.png)
+
 ## Von der Skizze zur Hardware:
 Die Realisierung der Fernbedienung begann zuerst mit einer Skizze, dann mit der Umsetzung, die wie folgt ablief:
 1. Auswahl der erfordlichen Schaltelemente
@@ -71,7 +111,6 @@ Das Innenleben der Fernbedienung:
 Das Ziel wurde erreicht und wir sind stolz, dass die Anlage mit einer einzigen Fernbedienung die gestellten Aufgaben steuern kann und damit auch den Senioren glücklich macht. 
 
 ![](/04-Bilder/Endproduct.jpg)
-
 
 #### Die zusammengebaute Fernbedienung besteht aus folgenden Elementen. Hier die Auflistung und die Bestelllinks.
 
