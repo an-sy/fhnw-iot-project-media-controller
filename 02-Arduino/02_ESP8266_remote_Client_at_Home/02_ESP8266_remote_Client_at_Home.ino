@@ -14,8 +14,7 @@ const int progUP =15;
 const int progDown = 16; 
 int newVolume = 0;
 int old_volume;
-bool state1 = false;
-bool state2 = false;
+bool powerState = false;
 
 IRsend irsend(irTransmitterPin);
 
@@ -76,88 +75,74 @@ void loop() {
    delay(20);
 
   // SwisscomTv on / off
-  if (state1 == false){
+  if (digitalRead(PowerButtonPin) == LOW && powerState == false) {
+    digitalWrite(powerLedPin, HIGH);
     swisscomTvOn();
-  } 
-  
-  if (state2 == true){
+  }
+
+  if (digitalRead(PowerButtonPin) == LOW && powerState == true) {
+    digitalWrite(powerLedPin, HIGH);
     swisscomTvOff();
   }
 
   // Programm up/down
   if (digitalRead(progUP) == HIGH) {
-        Serial.println("prog UP");
-    irsend.sendPronto(SwisscomProgUp, 26);
     digitalWrite(powerLedPin, HIGH);
-    delay(200);
-    } else {
-      digitalWrite(powerLedPin, LOW);
-      }
-  if (digitalRead(progDown) == HIGH) {
-    Serial.println("prog Down");
-  irsend.sendPronto(SwisscomProgDown, 26);
-  digitalWrite(powerLedPin, HIGH);
-  delay(200);
-  } else {
-    digitalWrite(powerLedPin, LOW);
-    }
+    progUPMethod();
   }
 
-// End loop
-
-
-// Swisscom-TV ON 
-void swisscomTvOn(){
-  if (digitalRead(PowerButtonPin) == LOW) {
-    Serial.println("Power");
-    irsend.sendPronto(SwisscomPower, 28);
-    state1 = true;
-    state2 = true;
+  if (digitalRead(progDown) == HIGH) {
     digitalWrite(powerLedPin, HIGH);
-    delay(200);
-    menuOff();
-    } else {
-      digitalWrite(powerLedPin, LOW);
-      }     
+    progDownMethod();
+  }
+
+}
+
+void progDownMethod() {
+  Serial.println("prog Down");
+  irsend.sendPronto(SwisscomProgDown, 26);
+  digitalWrite(powerLedPin, LOW);
+  delay(100);
+}
+
+void progUPMethod() {
+  Serial.println("prog UP");
+  irsend.sendPronto(SwisscomProgUp, 26);
+  digitalWrite(powerLedPin, LOW);
+  delay(100);
+}
+
+void changeVolume(int volume) {
+  String fullpath = sonosSpeakerPath + String(volume);
+  Serial.print("fullpath: ");
+  Serial.println(fullpath);
+  old_volume = volume;
+  WiFiClient wifi;
+  HttpClient client = HttpClient(wifi, sonosHost, sonosPort);
+  client.get(fullpath);
+}
+
+// Swisscom-TV ON
+void swisscomTvOn() {
+  Serial.println("Power");
+  irsend.sendPronto(SwisscomPower, 28);
+  powerState = true;
+  digitalWrite(powerLedPin, LOW);
+  delay(100);
 }
 
 // Swisscom-TV OFF
-void swisscomTvOff(){
-      if (digitalRead(PowerButtonPin) == LOW) {
-    Serial.println("Power");
-    irsend.sendPronto(SwisscomPower, 28);
-    state1 = false;
-    state2 = false;
-    digitalWrite(powerLedPin, HIGH);
-    delay(200);
-    } else {
-      digitalWrite(powerLedPin, LOW);
-      } 
+void swisscomTvOff() {
+  Serial.println("Power");
+  irsend.sendPronto(SwisscomPower, 28);
+  digitalWrite(powerLedPin, LOW);
+  powerState = false;
+  delay(100);
 }
 
 // Swisscom-TV Menu OFF
-void menuOff(){
+// Workaround swisscom TV turn menu on, when pressed the power button
+void menuOff() {
   delay(2000);
   irsend.sendPronto(SwisscomMenu, 26);
-}
-
-// control Playbar-Sonosspeaker volume
-void changePlaybarVolume(int volume) {
-  // offset volume playbar volume
-  int playbarVol = volume-30;
-  String fullpath1 = sonosPath1 +String(playbarVol);
-  old_volume = volume;  
-  WiFiClient wifi;
-  HttpClient client = HttpClient(wifi, sonosHost, sonosPort);
-  client.get(fullpath1);
-  changeWohnzimmerVolume(volume);
-  }
-
-// control Wohnzimmer-Sonosspeaker volume
-void changeWohnzimmerVolume(int volume){
-  String fullpath2 = sonosPath2 +String(volume); //
-  WiFiClient wifi;
-  HttpClient client = HttpClient(wifi, sonosHost, sonosPort);
-  client.get(fullpath2);
-  delay(500); 
 }
