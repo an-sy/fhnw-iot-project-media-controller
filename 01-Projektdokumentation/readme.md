@@ -90,7 +90,7 @@ Hier ein Bsp.
 Bei Grafana wurde ein Dashboard erstellt, wo als Table die Logs aufgelisted werden mit Zeitstempel.
 Wenn der Status auf failure ist wird dies Rot markiert. (Nur bei changeVolume, da nur dort Rückmeldung)
 
-Grafana [Dashboard]() wurde als Json exportiert.
+Grafana [Dashboard](/06-dashboard/grafana_dashboard/) wurde als Json exportiert.
 
 ![](/04-Bilder/grafanapanel.png)
 
