@@ -1,7 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <ArduinoHttpClient.h>
 #include <Arduino.h>
-.#include <IRsend.h>
+#include <IRremoteESP8266.h>
+#include <IRsend.h>
 #include "secrets.h"
 #include "config.h"
 
@@ -128,7 +129,6 @@ void swisscomTvOn(){
   if (digitalRead(PowerButtonPin) == LOW) {
     Serial.println("Power");
     irsend.sendPronto(SwisscomPower, 28);
-    powerState = true;
     digitalWrite(powerLedPin, HIGH);
     delay(200);
     message = "iotdevicelogs,method=PowerOn,status=pressed value=1";
@@ -144,10 +144,10 @@ void swisscomTvOff(){
       if (digitalRead(PowerButtonPin) == LOW) {
     Serial.println("Power");
     irsend.sendPronto(SwisscomPower, 28);
-    powerState = false;
     digitalWrite(powerLedPin, HIGH);
     message = "iotdevicelogs,method=PowerOff,status=pressed value=0";
     createLog(message);
+    powerState = false;
     delay(200);
     } else {
       digitalWrite(powerLedPin, LOW);
@@ -155,9 +155,11 @@ void swisscomTvOff(){
 }
 
 // Swisscom-TV Menu OFF
+// Workaround swisscom TV turn menu on, when pressed the power button
 void menuOff(){
   delay(2000);
   irsend.sendPronto(SwisscomMenu, 26);
+  powerState = true;
 }
 
 
