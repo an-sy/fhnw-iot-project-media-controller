@@ -1,8 +1,7 @@
 # IoT Engineering
-## [Project Media Controller](Projektbeschreibung.md)
+## [Project Media Controller](/01-Projektdokumentation/01-Projektdokumentation
+readme.md)
 
-> *Note: Do not work on this repository right away.*<br/>
-> *[Create your copy or join a team by clicking this GitHub Classroom link](https://classroom.github.com/g/gALXMYRD).*
 
 ## Introduction
 This project is part of the [IoT Engineering](../../../fhnw-iot) course.
