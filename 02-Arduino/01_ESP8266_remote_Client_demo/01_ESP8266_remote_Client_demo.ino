@@ -41,11 +41,6 @@ void setup() {
 
 void irSetup() {
   irsend.begin();
-#if defined(ESP8266)
-  Serial.begin(115200, SERIAL_8N1, SERIAL_TX_ONLY);
-#else  // ESP8266
-  Serial.begin(115200, SERIAL_8N1);
-#endif  // ESP8266
 }
 
 void setPin() {
@@ -108,6 +103,7 @@ void progUPMethod() {
   createLog(message);
 }
 
+// Sonos Speaker vol
 void changeVolume(int volume) {
   String fullpath = sonosSpeakerPath + String(volume);
   Serial.print("fullpath: ");
@@ -152,7 +148,7 @@ void swisscomTvOff() {
 // Swisscom-TV Menu OFF
 // Workaround swisscom TV turn menu on, when pressed the power button
 void menuOff() {
-  delay(500);
+  delay(1000);
   irsend.sendPronto(SwisscomMenu, 26);
 }
 

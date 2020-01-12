@@ -1,5 +1,5 @@
 //Sonos Server Config
-#define sonosHost "192.168.0.104" // replace Sonos Server IP
+#define sonosHost "192.168.0.101" // replace Sonos Server IP
 #define sonosPort 5005 // replace Sonos Server port
 #define sonosSpeakerPath "/fernsehzimmer/volume/" // replace Sonos Server Speakerpath
 
