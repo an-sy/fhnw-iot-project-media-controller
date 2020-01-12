@@ -45,11 +45,6 @@ void setup() {
 
 void irSetup() {
     irsend.begin();
-  #if defined(ESP8266)
-    Serial.begin(115200, SERIAL_8N1, SERIAL_TX_ONLY);
-  #else  // ESP8266
-    Serial.begin(115200, SERIAL_8N1);
-  #endif  // ESP8266
   }
 
 void setPin() {
@@ -61,7 +56,6 @@ void setPin() {
   digitalWrite(powerLedPin, LOW);
   }
 // End initial settings
-
 
 // Start loop
 void loop() {
@@ -112,6 +106,7 @@ void progUPMethod() {
   delay(100);
 }
 
+// Sonos Speaker volume
 void changeVolume(int volume) {
   String fullpath = sonosSpeakerPath + String(volume);
   Serial.print("fullpath: ");
